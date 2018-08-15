@@ -1,0 +1,441 @@
+// Vendors styles
+@import "scss/vendors";
+
+// IPSO core styles
+@import "scss/helpers";
+@import "scss/ipso-variables";
+@import "scss/ipso/mixins";
+@import "scss/ipso/structure";
+@import "scss/ipso/ipso";
+
+
+// Custom styles
+@import "scss/custom";
+
+/*@import '~arcgis-js-api/themes/light/main.css';
+@import '~arcgis-js-api/themes/light/view.css';*/
+
+:host {
+  html {
+    color: #00162A;
+  }
+}
+
+
+
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+
+$universal-text: #626f86;
+$apc-blue: #0054a0;
+
+// light
+$light-text: #fff;
+$main-content: #ececec;
+$background-primary: #0054a0;
+$background-primary-2: #a4a6a8;
+$link-active: #ececec;
+$light-hover: #6c757d;
+$off-white: #fafafa;
+
+// dark
+$default-text: #afbdd1;
+$card-title: #8796b0;
+$links-text: #2196f3;
+$meta-labels: #626f86;
+$icons: #64718a;
+$borders: #3e495b;
+$good-status: #81c784;
+$bad-status: #e57373;
+
+$background-dark-light: #3e495b;
+$background-dark-medium: #2b3648;
+$background-dark-dark: #212936;
+
+$background-dark-row: #323e52;
+
+
+$white-0: #fff;
+$white-1: #ececec;
+$grey-0: #afbdd1;
+$grey-1: #a4a6a8;
+$grey-2: #8796b0;
+$grey-3: #6c757d;
+$grey-4: #626f86;
+$grey-5: #64718a;
+$dgrey-0: #3e495b;
+$dgrey-1: #323e52;
+$dgrey-2: #212936;
+$dgrey-3: #2b3648;
+$dgrey-4: #525a67;
+
+$blue-0: #2196f3;
+$blue-1: #0054a0;
+$light-green: #81c784;
+$light-red: #e57373;
+
+
+@include mat-core();
+
+
+$mat-dark-theme-background: (
+  expansion-panel-content: white,
+  status-bar: black,
+  app-bar:    map_get($mat-grey, 900),
+  background: $dgrey-3,
+  hover:      rgba(white, 0.04), // TODO(kara): check style with Material Design UX
+  card:       $dgrey-3,
+  dialog:     $dgrey-1,
+  disabled-button: rgba(white, 0.12),
+  raised-button: $dgrey-0,
+  focused-button: $light-focused,
+  selected-button: map_get($mat-grey, 900),
+  selected-disabled-button: map_get($mat-grey, 800),
+  disabled-button-toggle: black,
+  unselected-chip: map_get($mat-grey, 700),
+  disabled-list-option: $dgrey-2,
+);
+
+
+
+// Dark theme
+$ap-app-primary: mat-palette($mat-blue, 700);
+$ap-app-accent:  mat-palette($mat-blue, A700);
+$ap-app-warn:    mat-palette($mat-red);
+$ap-app-theme: mat-dark-theme($ap-app-primary, $ap-app-accent, $ap-app-warn);
+
+@include angular-material-theme($ap-app-theme);
+
+// Light theme
+$light-primary: mat-palette($mat-blue, 700);
+$light-accent:  mat-palette($mat-amber, A200, A100, A400);
+$light-warn:    mat-palette($mat-deep-orange);
+$light-theme:   mat-light-theme($light-primary, $light-accent, $light-warn);
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-weight: 300;
+
+  h1, h2, h3, h4, h5 {
+    font-weight: 300;
+    margin: 0;
+  }
+
+  a {
+    color: #016ed3;
+    text-decoration: none;
+    background-color: transparent;
+  }
+}
+
+.mat-expansion-panel-body {
+  padding: 16px 24px !important;
+}
+
+.dark-theme {
+  .popout-menu {
+    background: $dgrey-0;
+    color: $grey-0;
+  }
+
+  .main-content {
+    color: $universal-text; // $light-text;
+  }
+  app-channel-card {
+    .card, .card .card-header {
+      background: rgba(0,0,0,.4)
+    }
+    .card {
+      border: 1px solid rgba(255,255,255,.2);
+    }
+  }
+
+  app-navbar-right {
+    background: $background-dark-light;
+    color: $universal-text;
+    .navbar-header {
+      color: white;
+    }
+
+    .mat-expansion-panel-header {
+      background-color: $dgrey-2 !important;
+    }
+    .mat-expansion-panel-content {
+      background-color: $dgrey-4;
+    }
+
+  }
+
+  app-card {
+    .card-body, .card-footer {
+      color: $universal-text;
+    }
+  }
+}
+
+.light-theme {
+  @include angular-material-theme($light-theme);
+
+  app-navbar-right {
+    background: $background-primary-2;
+    color: $light-text;
+  }
+
+  .title-bar {
+    background: $background-primary;
+    color: $light-text;
+  }
+
+  .sidebar {
+    background: $background-primary-2;
+    color: $light-text;
+
+    .nav-link {
+      color: $light-text !important;
+      &:hover {
+        background-color: $light-hover !important;
+        color: $light-text !important;
+      }
+
+      &.active {
+        background: $link-active !important;
+        color: $background-primary !important;
+        .nav-icon {
+          background: $background-primary !important;
+        }
+      }
+
+      .nav-icon {
+        background: $light-text;
+        color: $background-primary;
+      }
+    }
+  }
+
+  .main-content {
+    background: $main-content;
+    // color: $default-text;
+  }
+
+  .anadarko-layout {
+    color: black !important;
+
+    > div {
+      background: transparent !important;
+    }
+  }
+
+  .anadarko-card {
+    background: $off-white;
+    border: 1px solid rgba(0,0,0,.125);
+    color: $universal-text;
+  }
+
+  .mat-expansion-panel-header {
+    background-color: $main-content !important;
+  }
+  .mat-expansion-panel-content {
+    background-color: $light-text;
+  }
+
+  .mat-select-content, .mat-select-panel-done-animating {
+    background: $light-text !important;
+  }
+
+  .mat-menu-panel {
+    background: $light-text !important;
+    color: $universal-text !important;
+  }
+  .mat-menu-item {
+    color: $universal-text !important;
+  }
+  .mat-menu-item:hover:not([disabled]) {
+    background: rgba(0, 0, 0, 0.04) !important;
+  }
+
+  .mat-dialog-container {
+    background: #f6f6f6;
+  }
+
+  .white, .on-white {
+    .mat-form-field-label,
+    .mat-form-field-label,
+    .mat-select-value-text,
+    .mat-select-arrow,
+    .mat-tab-label,
+    .mat-button-wrapper{
+      color: black;
+    }
+    .mat-form-field-underline {
+      background: black;
+    }
+  }
+
+  .gtitle {
+    fill: black !important;
+  }
+
+  .sdgs-page {
+    color: black !important;
+  }
+
+  .trace-data-card {
+    background: transparent !important;
+  }
+
+  #tooltip {
+    background: $card-title;
+    color: $light-text;
+  }
+}
+
+.nv-x, .nv-y {
+  display: none;
+}
+
+.middle-content > .row > div:last-child .app-chart-container{
+  overflow: auto;
+}
+
+.modebar {
+  z-index: 100 !important;
+}
+
+.ui-dialog{
+  background: #fff;
+}
+
+.row {
+  margin: 0px !important;
+}
+
+.ui-dialog-titlebar-close	{
+  display: none;
+}
+
+html, body {
+  height: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+
+/*.lighter-background .mat-select-content {
+  background: #868686;
+}*/
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+.white {
+  .mat-form-field-label, .mat-form-field-label, .mat-select-value-text, .mat-select-arrow, .mat-tab-label, .mat-button-wrapper{
+    color: rgb(226, 226, 226);
+  }
+  .mat-form-field-underline {
+    background: rgb(226, 226, 226);
+  }
+}
+
+.on-white {
+  .mat-form-field-label, .mat-form-field-label, .mat-select-value-text, .mat-select-arrow, .mat-tab-label, .mat-button-wrapper{
+    color: rgb(39, 39, 39);
+  }
+  .mat-form-field-underline {
+    background: rgb(39, 39, 39);
+  }
+}
+
+.svg-container .main-svg {
+  background: transparent !important;
+}
+
+.gtitle {
+  fill: rgb(226, 226, 226) !important;
+}
+
+.anadarko-layout {
+  height: 100%;
+  padding: 20px;
+  color: rgb(226, 226, 226);
+
+  > div {
+    background: $background-dark-medium;
+    padding: 20px;
+  }
+}
+
+.remove-card {
+  border: none;
+  background: transparent;
+}
+
+.anadarko-card {
+  color: rgb(226, 226, 226);
+  background: $background-dark-medium;
+  padding: 12px;
+}
+
+.dashboard-card {
+  color: white;
+  background: rgba(#000000, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  padding: 20px;
+}
+
+.header {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+button:focus {
+  outline:0;
+}
+
+.ag-dark-theme {
+  .ag-icon {
+    filter: invert(100%)
+  }
+
+  .ag-header {
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  }
+
+  .ag-cell {
+    padding: 0 7px;
+    border-right: 1px dotted $background-dark-light;
+  }
+
+  .ag-row-even {
+    background: $background-dark-row;
+  }
+
+  .ag-header-cell-label {
+    padding-left: 7px;
+  }
+}
+
+mat-dialog-container {
+  overflow: visible!important;
+}
+

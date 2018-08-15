@@ -1,0 +1,224 @@
+@import "ipso/mixins";
+@import "flexbox";
+@import "placeholders";
+
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+h6, .h6 {
+  margin-bottom: 0;
+  font-size: 1.1rem;
+}
+
+// @extend %scrollbar;
+
+//Bootstrap overides
+
+.btn-primary:focus, .btn-primary.focus {
+  box-shadow: none;
+}
+
+.modal {
+  top: 5%;
+  z-index: 9999;
+  .modal-header {
+    border-bottom: 1px solid #E5E6E9;
+  }
+}
+
+%common {
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+
+@media (min-width: 992px) {
+  body > .navbar-collapse.collapse {
+    display: none !important;
+  }
+}
+
+//PrimeNg
+body .ui-corner-all {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
+body .ui-widget-content {
+  border-top: 1px solid #EDEDED;
+  border-left: none;
+  border-right: none;
+}
+
+body .ui-dialog .ui-dialog-titlebar {
+  padding: 0.2rem 0.5rem;
+  border-bottom: 1px solid #EDEDED;
+}
+
+body .ui-dialog .ui-dialog-titlebar .ui-dialog-title {
+  font-weight: 600;
+  font-size: 1.3rem !important;
+}
+
+.ui-dialog .ui-dialog-titlebar-close {
+  padding-top: 0.5rem !important;
+}
+
+ipso-paste-wins-api10 {
+  h5 {
+    margin-bottom: 0;
+  }
+  .form-group {
+    margin-bottom: 0.5rem;
+  }
+}
+
+ag-grid-angular.expanded {
+ .ag-group-expanded .ag-icon-contracted:empty {
+    vertical-align: middle;
+  }
+
+  .ag-icon-expanded {
+    vertical-align: middle;
+  }
+
+  &.well-groups-data-grid {
+    .ag-body-viewport {
+      overflow-x: hidden;
+    }
+    .ag-cell-inline-editing {
+      height: unset;
+      .ag-cell-edit-input {
+        height: unset;
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+
+.dropdown-menu-data-grid-container {
+  ag-grid-angular.well-groups-data-grid {
+    .ag-body-viewport {
+      @extend %scrollbar;
+      overflow-x: hidden;
+    }
+  }
+}
+
+BaseHead {
+  .card {
+    border: none;
+    height: 100%;
+    box-shadow: 1px 1px 5px 0 rgba(37, 45, 71, 0.25);
+    .card-header {
+      background-color: white;
+      border-bottom: 1px solid #F8F8F8;
+      padding: 0.5rem 1.25rem;
+      .clsRightFunctionIcons {
+        a {
+          i {
+            border: none !important;
+            border-radius: 0;
+            color: #000;
+            font-size: 1.1rem;
+            padding: 0;
+          }
+        }
+      }
+    }
+    .card-block {
+      overflow-y: auto;
+      overflow-x: hidden;
+      @extend %scrollbar;
+      margin: 5px;
+    }
+    chart-settings {
+      .clsSettingsPopup {
+        height: auto !important;
+        .table {
+          td, th {
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+    apc-charts {
+      //max-width: 100%;
+    }
+  }
+
+}
+
+//PVT Overides
+ipso-pvt {
+  ipso-tabs {
+   > .tab-content {
+     > ipso-tab {
+       > .tab-pane {
+         padding: 0;
+       }
+     }
+   }
+  }
+}
+
+.table, .table-bordered, .table-striped {
+  .ui-datepicker table {
+    width: 100% !important;
+    font-size: .9em !important;
+    border-collapse: collapse !important;
+    margin: 0 0 .4em !important;
+    tr {
+      background-color: white;
+    }
+    position:relative;
+    z-index: 9999;
+  }
+  .ui-datepicker th {
+    padding: .7em .3em !important;
+    text-align: center !important;
+    font-weight: bold !important;
+    border: 0 !important;
+  }
+  .ui-datepicker td {
+    border: 0 !important;
+    padding: .125em !important;
+    text-align: center;
+  }
+  .ui-datepicker td span,
+  .ui-datepicker td a {
+    display: block !important;
+    padding: .2em !important;
+    text-align: center !important;
+    text-decoration: none !important;
+  }
+
+}
+
+//Sweet Alert Overides
+.swal2-container {
+  z-index: 9997 !important;
+}
+
+ipso-production-levels {
+  input.highcharts-range-selector {
+    &:focus {
+      margin-top: 2px;
+      margin-left: 1px;
+      outline: none !important;
+      border: none !important;
+      border-top: 1px solid white !important;
+      background-color: #0054A0 !important;
+      height: 14px;
+      line-height: 14px;
+    }
+  }
+}
+

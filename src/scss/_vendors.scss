@@ -1,0 +1,38 @@
+// Font Awesome
+// $fa-font-path: '/assets/fonts/fontawesome' !default; // Override the default path
+// @import '~font-awesome/scss/font-awesome';
+@import '~font-awesome/css/font-awesome.css';
+
+// Animate
+@import '~animate.css/animate.css';
+
+// Override Boostrap variables
+// @import "bootstrap-variables";
+
+// Bootstrap source files
+$font-family-sans-serif: Roboto, "Segoe UI", "Helvetica Neue", sans-serif !default;
+$font-family-base: $font-family-sans-serif !default;
+// @import "~bootstrap/scss/bootstrap";
+// @import "~ngx-bootstrap/datepicker/bs-datepicker.css";
+
+// ag-Grid
+$ag-icons-path: '~ag-grid/src/styles/icons/';
+$ag-mat-icons-path: '~ag-grid/src/styles/material-icons/';
+
+/*@import '~ag-grid/src/styles/ag-grid';
+@import '~ag-grid/src/styles/ag-theme-bootstrap';
+@import '~ag-grid/src/styles/ag-theme-dark';*/
+
+@import '~ag-grid/dist/styles/ag-grid.css';
+@import '~ag-grid/dist/styles/ag-theme-bootstrap.css';
+@import '~ag-grid/dist/styles/ag-theme-dark.css';
+
+// Leaflet
+@import '~leaflet/dist/leaflet.css';
+
+//Toaster
+@import '~angular2-toaster/toaster';
+
+// PrimeNG
+@import '~primeng/resources/themes/bootstrap/theme.css';
+@import '~primeng/resources/primeng.css';

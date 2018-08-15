@@ -1,0 +1,142 @@
+@import "ipso/mixins";
+@import "flexbox";
+@import "placeholders";
+
+.custom-gutters {
+  margin-right: 0;
+  margin-left: 0;
+
+  > .col,
+  > [class*="col-"] {
+    padding-right: 5px;
+    padding-left: 0;
+    padding-top: 5px;
+  }
+}
+
+.default-padding {
+    padding: calculateRem(15px) !important;
+}
+
+.no-padding-left-right {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.no-padding-left {
+  padding-left: 0 !important;
+}
+
+.no-padding-right {
+  padding-right: 0 !important;
+}
+
+.padding-left-5 {
+  padding-left: calculateRem(5px) !important;
+}
+
+.padding-right-5 {
+  padding-right: calculateRem(5px) !important;
+}
+
+.padding-left-right-5 {
+  padding-left: calculateRem(5px) !important;
+  padding-right: calculateRem(5px) !important;
+}
+
+.padding-left-right-10 {
+  padding-left: calculateRem(10px) !important;
+  padding-right: calculateRem(10px) !important;
+}
+
+.pad-top-5 {
+  padding-top: calculateRem(5px) !important;
+}
+
+.pad-top-10 {
+  padding-top: calculateRem(10px) !important;
+}
+
+.pad-right-5 {
+  padding-right: calculateRem(5px) !important;
+}
+
+.pad-bottom-5 {
+  padding-bottom: calculateRem(5px) !important;
+}
+
+.pad-bottom-10 {
+  padding-bottom: calculateRem(10px) !important;
+}
+
+.no-margin-left-right {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.margin-top-15 {
+  margin-top: calculateRem(15px) !important;
+}
+
+.margin-bottom-15 {
+  margin-bottom: calculateRem(15px) !important;
+}
+
+
+.margin-bottom-5 {
+  margin-bottom: 0.3125rem !important;
+}
+
+.margin-right-5 {
+  margin-right: 0.3125rem !important;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+.inline-block {
+  display: inline-block !important;
+}
+
+.highlight-green {
+  background-color: #C6E0B4 !important;
+}
+
+.highlight-blue {
+  background-color: #9BC2E6 !important;
+}
+
+.header-select-all-checkbox-only {
+  padding-top: 12px !important;
+}
+
+
+.block-pointer-events {
+  pointer-events: none !important;
+}
+
+.not-allowed {
+  cursor: not-allowed !important;
+}
+
+.text-danger {
+  color: #D61600 !important;
+}
+
+.input-danger-border {
+  border: 1px solid #D61600 !important;
+}
+
+.smooth-image-rendering {
+  image-rendering: -moz-crisp-edges; /* Firefox */
+  image-rendering:   -o-crisp-edges; /* Opera */
+  image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
+  -webkit-backface-visibility: hidden;
+  -ms-transform: translateZ(0); /* IE 9 */
+  -webkit-transform: translateZ(0); /* Chrome, Safari, Opera */
+  transform: translateZ(0);
+}

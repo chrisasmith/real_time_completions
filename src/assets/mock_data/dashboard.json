@@ -1,0 +1,14 @@
+[
+  { "month": "1/1/2016", "wellCount": 2, "stageCount": 1 },
+  { "month": "2/1/2016", "wellCount": 8, "stageCount": 5 },
+  { "month": "3/1/2016", "wellCount": 4, "stageCount": 2 },
+  { "month": "4/1/2016", "wellCount": 12, "stageCount": 8 },
+  { "month": "5/1/2016", "wellCount": 2, "stageCount": 1 },
+  { "month": "6/1/2016", "wellCount": 10, "stageCount": 2 },
+  { "month": "7/1/2016", "wellCount": 5, "stageCount": 1 },
+  { "month": "8/1/2016", "wellCount": 4, "stageCount": 4 },
+  { "month": "9/1/2016", "wellCount": 4, "stageCount": 6 },
+  { "month": "10/1/2016", "wellCount": 8, "stageCount": 3 },
+  { "month": "11/1/2016", "wellCount": 11, "stageCount": 7 },
+  { "month": "12/1/2016", "wellCount": 5, "stageCount": 2 }
+]
