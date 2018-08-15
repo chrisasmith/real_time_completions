@@ -1,0 +1,100 @@
+@import '../styles';
+
+.asset-select {
+  margin-right: 16px;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.app-content {
+  height: calc(100vh - 60px);
+  position: relative;
+  display: flex;
+}
+
+.sidebar {
+  background: $background-dark-light;
+  width: 200px;
+  height: 100%;
+  overflow: hidden;
+  transition: .1s width ease;
+  position: relative;
+}
+
+.sidedrawer {
+  min-width: 58px;
+  width: 200px;
+}
+
+.sidebar-collapse {
+  width: 42px;
+}
+
+.logo {
+  height: 34px;
+  padding-right: 10px;
+  filter: brightness(0) invert(1);
+}
+
+.navbar-brand {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-size: 23px;
+  color: #fff;
+}
+
+.light-theme .navbar-brand {
+  color: $light-text;
+}
+
+.themed-button {
+  color: $default-text;
+}
+
+.main-toolbar {
+  background: #0054a0 !important;
+  padding-left: 0px;
+  font-size: 14px;
+  height: 60px;
+}
+
+.spacer {
+  display: flex;
+  flex: 1;
+}
+
+.main-content {
+  width: calc(100vw - 200px);
+  transition: .1s width ease;
+  overflow: hidden;
+  padding: 12px;
+  // background: linear-gradient(180deg, #000000, #002242);
+  background: $background-dark-dark;
+  &.home {
+    width: 100vw;
+    padding: 0;
+  }
+}
+
+.main-content-expand {
+  width: calc(100vw - 58px);
+}
+
+.sidebar-collapse-control {
+  bottom: 0;
+}
+
+.title-button {
+  padding-left: 12px;
+  height: 100%;
+
+  &:focus {
+    outline: 0;
+  }
+}

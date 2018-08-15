@@ -1,0 +1,12 @@
+
+<label id="picker_label" [style.background-color]="linkColor">
+  <!--<p-colorPicker #picker
+                 [ngStyle]="{'width':'100%'}"
+                 id="color_picker"
+                 [(ngModel)]="linkColor"></p-colorPicker>-->
+  <input #picker type="color" id="color_picker" style="width: 100%" (change)="setColor($event)">
+</label>
+
+<!--<p-colorPicker #picker
+               id="mc_color_picker"
+               [(ngModel)]="linkColor"></p-colorPicker>-->

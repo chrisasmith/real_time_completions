@@ -1,0 +1,14 @@
+  <mat-tab-group *ngIf="userCanEdit$ | async; let userRole;" fxFill style="height: 100%;">
+    <mat-tab *ngIf="userRole === 'admin'" #manageChannels label="Manage Channels" fxFill>
+      <app-manage-channels
+        [userCanEdit]="userRole !== 'visitor'"
+        [theme]="currentTheme">
+      </app-manage-channels>
+    </mat-tab>
+    <mat-tab label="Manage Pump Schedules" fxFill>
+      <app-manage-pump-schedules
+        [userCanEdit]="userRole !== 'visitor'"
+        [theme]="currentTheme">
+      </app-manage-pump-schedules>
+    </mat-tab>
+  </mat-tab-group>

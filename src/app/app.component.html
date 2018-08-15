@@ -1,0 +1,42 @@
+<div class="app-container">
+  <mat-toolbar color="primary" class="main-toolbar">
+    <button class="title-button" mat-button routerLink="/">
+      <!--<img src="assets/Anadarko_oil_derrick_logo_white.svg" class="logo">-->
+      <img src="assets/oil_derrick_logo.svg" class="logo">
+      <span class="navbar-brand">
+        Real-Time Completions
+      </span>
+    </button>
+    <span class="spacer"></span>
+    <mat-form-field *ngIf="!isHome" class="asset-select">
+      <mat-select name="asset" [(value)]="currentAsset" [compareWith]="compareFn" (selectionChange)="goToDash($event.value)" placeholder="Select an Asset">
+        <mat-option *ngFor="let asset of rtcAssets" [value]="asset">{{asset.assetName}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-icon-button [matMenuTriggerFor]="themeMenu" yPosition="above" matTooltip="Select a theme!" matTooltipPosition="below">
+      <mat-icon>format_color_fill</mat-icon>
+    </button>
+    <mat-menu #themeMenu="matMenu" [overlapTrigger]="false">
+      <button mat-menu-item (click)="selectedTheme('light-theme')">Light Theme</button>
+      <button mat-menu-item (click)="selectedTheme('dark-theme')">Dark Theme</button>
+    </mat-menu>
+
+    <app-user-avatar></app-user-avatar>
+  </mat-toolbar>
+
+  <div class="app-content" [ngClass]="theme">
+    <div class="sidebar" [class.sidebar-collapse]="sidebarCollapse" [hidden]="isHome">
+      <app-nav-page-tabs (sidebarCollapse)="toggleSidebar()"></app-nav-page-tabs>
+    </div>
+
+    <div class="main-content  animated fadeInDown d400 delay200" [class.main-content-expand]="sidebarCollapse" [class.home]="isHome">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<toaster-container [toasterconfig]="toastConfig"></toaster-container>
+<app-feedback-outlet></app-feedback-outlet>
+
+<app-loading></app-loading>

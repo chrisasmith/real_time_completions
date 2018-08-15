@@ -1,0 +1,52 @@
+<div id="manage_channels" fxFlex fxLayout="column" fxLayoutGap="4px">
+  <div>
+    <mat-label>CHANNELS LIST MANAGMENT</mat-label>
+  </div>
+  <div fxLayout="row" fxLayoutGap="2px" fxLayoutAlign="space-between">
+    <div fxLayout="row" fxLayoutGap="5px">
+      <mat-form-field>
+        <input matInput #filterTextBox type="text" id="filter-text-box" placeholder="Filter Proper Name" (input)="onFilterTextBoxChanged($event)"/>
+      </mat-form-field>
+
+      <button mat-icon-button [color]="'primary'"
+              [disabled]="!filterApplied"
+              (click)="clearFilter()"
+              matTooltip="Clear"
+              matTooltipPosition="left">
+        <i class="material-icons">close</i>
+      </button>
+    </div>
+
+    <button *ngIf="_userCanEdit" mat-icon-button [color]="'primary'"
+            [disabled]="!isDirty"
+            (click)="saveChannels()"
+            matTooltip="Save" matTooltipPosition="left"><i class="material-icons">save</i></button>
+  </div>
+
+  <ag-grid-angular
+    #agGrid
+    style="width: 100%; height: 60%;"
+    [class]="currentTheme === 'dark-theme' ? 'ag-theme-dark' : 'ag-theme-bootstrap'"
+    id="ag_manage_channels"
+    [columnDefs]="channelsDef"
+    [rowData]="channels"
+    [domLayout]="'autoHeight'"
+    [rowSelection]="'single'"
+    [singleClickEdit]="_userCanEdit"
+    [rowDragManaged]="_userCanEdit"
+    [animateRows]="_userCanEdit"
+    [showToolPanel]="false"
+    [toolPanelSuppressSideButtons]="true"
+    [stopEditingWhenGridLosesFocus]="true"
+    [defaultColDef]="defaultColDef"
+    [overlayNoRowsTemplate]="'<span></span>'"
+    [context]="context"
+    [pagination]="true"
+    [paginationAutoPageSize]="true"
+    [paginationPageSize]="30"
+    [getRowNodeId]="getRowNodeId"
+    [frameworkComponents]="frameworkComponents"
+    (cellValueChanged)="cellValueChanged($event)"
+    (gridReady)="onGridReady($event)">
+  </ag-grid-angular>
+</div>

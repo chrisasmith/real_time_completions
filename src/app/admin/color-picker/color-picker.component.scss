@@ -1,0 +1,14 @@
+:host {
+  #color_picker{
+    visibility:hidden;
+  }
+
+  #picker_label {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+}

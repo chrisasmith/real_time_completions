@@ -1,0 +1,103 @@
+<div class="form-group form-inline">
+  <div fxFlex fxLayout="column">
+
+    <mat-label>{{currentAsset}} PUMP SCHEDULE MANAGMENT</mat-label>
+
+    <div fxLayout="row">
+
+      <mat-form-field class="pump-schedule-name">
+        <mat-select placeholder="Select a Pump Schedule" [(ngModel)]="selectedPumpSchedule" (ngModelChange)="onPumpScheduleChange()" [disabled]="editMode">
+          <mat-option value=""> Select a Pump Schedule </mat-option>
+          <mat-option *ngFor="let ps of pumpSchedules" [value]="ps">
+            {{ps.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div *ngIf="userCanEdit" fxLayout="row">
+        <button mat-icon-button color="primary"
+                (click)="addNewPumpSchedule()"
+                [disabled]="editMode"
+                matTooltip="New Pump Schedule" matTooltipPosition="left"><i class="material-icons">add_box</i></button>
+        <button mat-icon-button color="warn" *ngIf="getPumpScheduleState()"
+                (click)="deletePumpSchedule(selectedPumpSchedule)"
+                matTooltip="Delete Pump Schedule" matTooltipPosition="left"
+                [disabled]="editMode"><i class="material-icons">delete_forever</i></button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+<div fxLayout="row" >
+  <div fxLayout="column">
+    <mat-form-field class="pump-schedule-name">
+      <input fxFlex matInput
+             #pumpScheduleName
+             type="text"
+             placeholder="Pump Schedule Name..."
+             [ngModel]="selectedPumpSchedule?.name"
+             [disabled]="!editMode"
+             (blur)="checkForDuplicateOrEmptyName($event.srcElement.value)"
+             (change)="updateFormState($event)"
+             [ngClass]="{ 'is-invalid': psNameEmpty || psNameDuplicated}" />
+    </mat-form-field>
+    <div fxLayout="row" class="errors-block">
+      <mat-error *ngIf="psNameEmpty">
+        Pump Schedule name is required.
+      </mat-error>
+      <mat-error *ngIf="psNameDuplicated">
+        Pump Schedule name duplicated.
+      </mat-error>
+    </div>
+  </div>
+  <div *ngIf="userCanEdit" fxLayout="row">
+    <button mat-icon-button color="primary" *ngIf="getPumpScheduleState() && !editMode"
+            (click)="editPumpSchedule()"
+            matTooltip="Edit" matTooltipPosition="left"><i class="material-icons">create</i></button>
+    <button mat-icon-button color="warn"
+            (click)="editPumpSchedule(false)"
+            matTooltip="Cancel" matTooltipPosition="left"
+            *ngIf="editMode"><i class="material-icons">cancel_presentation</i></button>
+  </div>
+
+</div>
+<div fxLayout="row" fxLayoutGap="2px" fxLayoutAlign="space-between">
+  <div fxLayout="row" fxLayoutGap="12px" [style.visibility]="getPumpScheduleState() ? 'visible' : 'hidden'">
+    <span>Created On: {{selectedPumpSchedule.created_date}}</span>
+    <mat-checkbox *ngIf="userCanEdit" [(ngModel)]="selectedPumpSchedule.archived" (ngModelChange)="checkArchivedState(selectedPumpSchedule.archived)">Archive Pump Schedule</mat-checkbox>
+  </div>
+  <div fxLayout="row" fxLayoutGap="2px" fxLayoutAlign="end" *ngIf="editMode">
+    <button mat-icon-button color="primary"
+            (click)="addNewScheduleStep(selectedSchedule)"
+            matTooltip="Add New Step" matTooltipPosition="left"><i class="material-icons">playlist_add</i></button>
+    <button mat-icon-button [color]="'primary'"
+            [disabled]="hasErrors(scheduleErrors) || !isDirty"
+            (click)="savePumpSchedule()"
+            matTooltip="Save" matTooltipPosition="left"><i class="material-icons">save</i></button>
+  </div>
+</div>
+<ag-grid-angular fxLayout="column"
+  [class]="currentTheme === 'dark-theme' ? 'ag-theme-dark' : 'ag-theme-bootstrap'"
+  #agGrid
+  style="width: 100%;"
+  id="myGrid"
+  [rowData]="selectedSchedule"
+  [columnDefs]="columnDefs"
+  [domLayout]="'autoHeight'"
+  [rowSelection]="'single'"
+  [singleClickEdit]="userCanEdit"
+  [rowDragManaged]="userCanEdit"
+  [animateRows]="userCanEdit"
+  [showToolPanel]="false"
+  [toolPanelSuppressSideButtons]="true"
+  [stopEditingWhenGridLosesFocus]="true"
+  [defaultColDef]="{ suppressMenu: true, editable: userCanEdit }"
+  [overlayNoRowsTemplate]="'<span></span>'"
+  [context]="context"
+  [frameworkComponents]="frameworkComponents"
+  (cellClicked)='onCellClicked($event)'
+  (cellValueChanged)="setGridState($event)"
+  (rowDragEnd)="onRowDragEnd($event)"
+  (gridReady)="onGridReady($event)">
+</ag-grid-angular>

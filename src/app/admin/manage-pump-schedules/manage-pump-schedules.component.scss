@@ -1,0 +1,17 @@
+:host {
+  .header-toolbar {
+    justify-content: flex-end;
+  }
+  .pump-schedule-name {
+    width: 280px;
+  }
+
+
+  .mat-success {
+    color: green;
+  }
+
+  .mat-success:disabled {
+    color: rgba(189, 189, 189, 0.5);
+  }
+}
