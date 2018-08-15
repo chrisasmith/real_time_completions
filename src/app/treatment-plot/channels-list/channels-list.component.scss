@@ -1,0 +1,41 @@
+:host{
+  input[type='checkbox'] {
+    width: 16px;
+    height: 16px;
+    padding: auto 14px auto 10px;
+    border: 1px solid #B9BFC4;
+  }
+  input[type='checkbox'] ~ label {
+   position: relative;
+    top: -3px;
+  }
+  .section-header {
+    background-color: #002B52;
+    height: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    padding: 5px
+  }
+  .section-row {
+    height: 25px;
+    font-size: 13px;
+    color: #00162A;
+    padding: 5px;
+    margin: auto;
+    background: white;
+  }
+  .odd {
+    background-color: #E1E2E3;
+  }
+  .even {
+    background-color: #FFFFFF;
+  }
+  label {
+    text-overflow: ellipsis;
+  }
+  .channels-list {
+    overflow: auto;
+    height:61vh;
+  }
+}

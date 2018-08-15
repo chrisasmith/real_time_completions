@@ -1,0 +1,24 @@
+<div fxFlex fxFlexFill fxLayout="column" fxLayoutGap="20">
+  <div *ngIf="userCanEdit" fxLayout="row" fxLayoutGap="2px" fxLayoutAlign="end">
+    <button mat-icon-button [color]="'success'"
+            [disabled]="!isDirty"
+            (click)="saveCombinedCost()"
+            matTooltip="Save" matTooltipPosition="left"><i class="material-icons">save</i></button>
+  </div>
+  <app-cost-table
+    [currentTheme]="currentTheme"
+    [setColumnDefs]="fixedCostDef"
+    [setDefaultColDefs]="{ suppressMenu: true, editable: userCanEdit }"
+    [setRowData]="fixedCostData"
+    (cellValueChanged)="onCellValueChanged($event)">
+    <span grid-header>Fixed Cost</span>
+  </app-cost-table>
+  <app-cost-table
+    [currentTheme]="currentTheme"
+    [setColumnDefs]="variableCostDef"
+    [setDefaultColDefs]="{ suppressMenu: true, editable: userCanEdit }"
+    [setRowData]="variableCostData"
+    (cellValueChanged)="onCellValueChanged($event)">
+    <span grid-header>Variable Cost</span>
+  </app-cost-table>
+</div>

@@ -1,0 +1,39 @@
+<div fxFlex="100" fxLayout="row" fxLayoutGap="12px">
+  <div fxLayout="column" fxFlex="50" fxLayoutGap="12px">
+      <app-monthly-graph
+        class="anadarko-card"
+        [color]="'#ffdb4b'"
+        [data]="wellCount"
+        [metric]="'Well Count'">
+      </app-monthly-graph>
+      <app-monthly-graph
+        class="anadarko-card"
+        [color]="'#22f184'"
+        [data]="stageCount"
+        [metric]="'Stage Count'">
+      </app-monthly-graph>
+  </div>
+  <div fxLayout="column" fxFlex="50" fxLayoutGap="12px">
+    <div fxLayout="row" fxLayoutGap="12px">
+      <app-data-card title="YTD Wells" fxFlex="50">
+        <div class="data-card-body">
+          {{ytdWells}}
+        </div>
+      </app-data-card>
+      <app-data-card title="YTD Stages" fxFlex="50">
+        <div class="data-card-body">
+          {{ytdStages}}
+        </div>
+      </app-data-card>
+    </div>
+    <div fxLayout="column" fxLayoutGap="12px" fxFlex>
+      <div class="anadarko-card map" fxLayout="column" fxFlex>
+        <app-leaflet-map
+          fxFlex="100"
+          [coordinates]="wellLocations"
+          (selectedCoordinateChange)="wellSelected($event)">
+        </app-leaflet-map>
+      </div>
+    </div>
+  </div>
+</div>

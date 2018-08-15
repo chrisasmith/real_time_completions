@@ -1,0 +1,39 @@
+@import '../../../scss/ipso/mixins';
+@import '../../../scss/ipso-variables';
+@import '../../../scss/flexbox';
+
+:host {
+  @include flexbox;
+  @include align-items(center);
+  @include justify-content(center);
+  color: $navbar-icon-color;
+  cursor: pointer;
+  font-size: calculateRem(22px);
+  min-width: calculateRem(44px);
+  padding: calculateRem(11px);
+  position: relative;
+  transition: color .2s $animation;
+
+  .avatar {
+    border-radius: 50%;
+    height: calculateRem(40px);
+    max-height: calculateRem(40px);
+    overflow: hidden;
+    object-fit: cover;
+    width: calculateRem(40px);
+    max-width: calculateRem(40px);
+  }
+
+  .name {
+    @include flexbox;
+    @include align-items(center);
+    font-size: calculateRem(14px);
+    font-weight: 600;
+    padding: 0 calculateRem(20px);
+    white-space: nowrap;
+    @media #{$max991} {
+      display: none;
+    }
+  }
+
+}

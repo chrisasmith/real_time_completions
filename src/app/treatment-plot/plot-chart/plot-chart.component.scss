@@ -1,0 +1,24 @@
+:host {
+  // height: 100%;
+  user-select: none!important;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  .treatment-chart {
+    // height: 100%;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+
+  ::ng-deep {
+    rect {
+      &.ewdrag.drag.cursor-ew-resize, &.nsdrag.drag.cursor-ns-resize {
+        cursor: -webkit-grab!important;
+      }
+      &.ewdrag.drag.cursor-ew-resize:active, &.nsdrag.drag.cursor-ns-resize:active {
+        cursor: -webkit-grabbing!important;
+      }
+    }
+  }
+}

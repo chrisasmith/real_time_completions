@@ -1,0 +1,22 @@
+::ng-deep {
+  .ui-contextmenu {
+    width: 15em;
+    .ui-submenu-list {
+      width: 16rem;
+    }
+  }
+  ::ng-deep .tplot-context-menu {
+    li {
+      transition: background .2s linear;
+      &.ui-menuitem-active {
+        background: #eaeaea;
+      }
+      a {
+        color: black;
+        &:hover {
+          text-decoration: none!important;
+        }
+      }
+    }
+  }
+}

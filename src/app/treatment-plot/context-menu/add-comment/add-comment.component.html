@@ -1,0 +1,12 @@
+<div>
+  <h4 mat-dialog-title>Add Comment</h4>
+  <mat-dialog-content fxLayout="row">
+    <mat-form-field fxFlex>
+      <textarea fxFlex matInput [(ngModel)]="commentData.comment" name="comment" [appAutofocus]="true" #input="ngModel"></textarea>
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions fxLayout="row" fxLayoutGap="12px" fxLayoutAlign="end center">
+    <button type="button" mat-raised-button mat-dialog-close>Cancel</button>
+    <button type="button" mat-raised-button color="primary" [mat-dialog-close]="commentData" [disabled]="input.pristine">{{mode === 'add' ? 'Add' : 'Update'}} Comment</button>
+  </mat-dialog-actions>
+</div>

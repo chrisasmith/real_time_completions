@@ -1,0 +1,111 @@
+:host {
+  position: relative;
+
+  .show-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+  }
+
+  margin-right: 10px;
+
+  .card {
+    margin: .3rem .1rem;
+    min-width: 11rem;
+    cursor: pointer;
+
+    &.is-active {
+      .card-title span {
+        font-weight: bolder;
+      }
+      .data-value {
+        font-weight: 600;
+      }
+    }
+
+    &.is-hidden {
+      opacity: 0.4;
+    }
+
+    .card-header {
+      padding: .3rem 0;
+      text-transform: uppercase;
+      text-overflow: ellipsis;
+      font-size: 1rem;
+      white-space: nowrap;
+      overflow: hidden;
+      .channel-name {
+        line-height: 24px;
+      }
+      button {
+        height: 24px;
+        width: 24px;
+        line-height: 24px;
+        margin-top: -1px;
+      }
+    }
+
+    .card-title {
+      margin: 0;
+      padding-right: 10px;
+      padding-left: 10px;
+      & > div:first-of-type {
+        padding-right: 30px;
+      }
+    }
+
+    .card-body {
+      padding: 5px 10px;
+      margin: 0;
+
+      .data-value {
+        font-size: 1.4rem;
+        line-height: 1.25rem;
+        font-family: monospace;
+        text-align: left;
+      }
+
+      .units {
+        font-size: .8rem;
+        text-align: right;
+        line-height: 1.4rem;
+      }
+    }
+
+    .tinted {
+      background-color: rgba(152,152,152,0.5);
+    }
+  }
+}
+
+::ng-deep {
+  .delta-box {
+    font-size: 12px;
+    padding-left: 10px;
+    animation: none;
+    animation: value-change 2s 1;
+  }
+
+  .delta-hidden {
+    opacity: 0;
+  }
+
+  .increase-animation {
+    color: #19d374;
+  }
+
+  .decrease-animation {
+    color: #ff5b73;
+  }
+
+  @keyframes value-change {
+    0% {
+      opacity: 1!important;
+      font-weight: bolder;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}

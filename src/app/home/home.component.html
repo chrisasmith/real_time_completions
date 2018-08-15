@@ -1,0 +1,28 @@
+<div fxLayout="column" fxFlex="100">
+  <div class="main" fxFlex="85" fxLayoutAlign="space-around center">
+    <div class="animated bounceInDown d800 delay800">
+      <h2>Welcome To</h2>
+      <h1>Real Time Completions</h1>
+      <mat-form-field>
+        <mat-select name="asset" [(value)]="appComponent.currentAsset" (selectionChange)="appComponent.goToDash($event.value)" placeholder="Select an Asset">
+          <mat-option *ngFor="let asset of appComponent.rtcAssets" [value]="asset">{{asset.assetName}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="footer" fxFlex="15">
+    <div fxFlex="50" id="access-request">
+      <h5>Access Request</h5>
+      <p>To request access please click the link and follow the instruction in the word document.</p>
+      <p><a href="https://anadarko.service-now.com/" target="_blank">Account Request Instructions Link</a></p>
+    </div>
+    <div fxFlex="50" id="support">
+      <h5>Support</h5>
+      <p>To create support tickets: <a href="https://anadarko.service-now.com" target="_blank">https://anadarko.service-now.com</a>
+      </p>
+    </div>
+  </div>
+  <div fxLayoutAlign="space-around center">
+    <p class="text-center copyright">&copy; Copyright Anadarko 2018. All rights reserved. Powered by <img width="59" height="26" [src]="dataImage" alt="AAET"></p>
+  </div>
+</div>

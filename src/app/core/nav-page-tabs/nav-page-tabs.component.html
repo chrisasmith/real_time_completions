@@ -1,0 +1,24 @@
+<div fxLayout="column" class="menu-container">
+  <div fxFlex="100" fxLayout="column">
+    <button
+      *ngFor="let item of menuItems"
+      mat-button
+      [matTooltip]="item.title"
+      matTooltipPosition="right"
+      [routerLink]="item.routing"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: item.routing === '' }" >
+      <mat-icon>{{item.icon.class}}</mat-icon>
+      {{item.title}}
+    </button>
+  </div>
+
+  <button mat-button matTooltip="Support" matTooltipPosition="right" (click)="openBugTracker()">
+    <mat-icon>bug_report</mat-icon>
+    Support
+  </button>
+  <button mat-button matTooltip="Collapse" matTooltipPosition="right" (click)="toggleSidebarCollapse()">
+    <mat-icon>{{collapsedIcon}}</mat-icon>
+    Collapse
+  </button>
+</div>

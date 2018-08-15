@@ -1,0 +1,29 @@
+:host{ height: 100% }
+
+h1 {
+  font-size: 5rem;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+h1, h2 {
+  margin-bottom: .5rem;
+}
+
+h5 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.main {
+  background: url(../../assets/2017_Delaware-Basin_Precision_Drilling_Rig-18.jpg) no-repeat center;
+  background-size: cover;
+  color: #FFF;
+  text-align: center;
+}
+
+.footer {
+  padding: 1rem;
+}

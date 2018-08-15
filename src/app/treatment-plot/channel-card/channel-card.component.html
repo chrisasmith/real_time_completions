@@ -1,0 +1,32 @@
+<div id="channel_{{info?.channel_name}}" class="card" [ngClass]="{'tinted':!showLine, 'is-active': isActive, 'is-hidden': !info.points.visible}" fxLayout="column" matTooltip="Set As Y Axis" #yAxisTt="matTooltip">
+  <div class="card-header" [style.border-bottom] ="'3px solid ' + info.default_color">
+    <div class="card-title" fxLayout="row" fxFlex="100%">
+      <div fxFlex class="channel-name">
+        {{info?.proper_name}}
+      </div>
+      <button
+        mat-icon-button
+        (click)="channelOptions(info, $event)"
+        matTooltip="Channel Settings"
+        matTooltipPosition="left"
+        *ngIf="!isLoading"
+        #settingsTt="matTooltip"
+        (mouseenter)="yAxisTt.toggle()">
+        <mat-icon>settings</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div fxFlex="100" fxLayout="row" class="card-body">
+    <div fxFlex="100" class="data-value">
+      <span #value>{{info?.value | number: formatValue(info.decimal_precision)}}</span>
+      <span #valueDeltaEl (animationend)="animationEnd()"></span>
+    </div>
+    <div class="units">{{info?.unit}}</div>
+  </div>
+</div>
+
+<div class="show-button" *ngIf="!info.points.visible">
+  <button mat-icon-button matTooltip="Show/Hide Line" (click)="onToggleLine($event)" #showHideTt="matTooltip" (mouseenter)="yAxisTt.toggle()">
+    <mat-icon>visibility</mat-icon>
+  </button>
+</div>

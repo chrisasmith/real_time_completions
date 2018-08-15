@@ -1,0 +1,39 @@
+<div class="channels-list">
+  <div class="plotted">
+    <div class="section-header">
+      <span class="section-header">PLOTTED CHANNELS</span>
+    </div>
+    <div class="section-body">
+      <div *ngFor="let channel of plottedChannels; let idx = index; let odd = odd" [class.odd]="odd" class="section-row">
+        <input type="checkbox" (name)="channel.channelName" class=""
+               id="plot_channel_{{channel.channel_name}}" (change)="removeFromPlottedChannels($event, idx, channel)" [checked]="true">
+        <label for="plot_channel_{{channel.channel_name}}">{{channel.proper_name}}</label>
+      </div>
+    </div>
+  </div>
+  <div class="available">
+    <div class="section-header">
+      <span class="section-header">AVAILABLE CHANNELS</span>
+    </div>
+    <div class="section-body">
+      <div *ngFor="let channel of availableStageChannels; let idx = index; let odd = odd" [class.odd]="odd" class="section-row">
+        <input type="checkbox" (name)="channel.channel_name" class=""
+               id="avail_channel_{{channel.channel_name}}" (change)="addToPlottedChannels($event, idx, channel)" [checked]="false">
+        <label for="avail_channel_{{channel.channel_name}}">{{channel.proper_name}}</label>
+      </div>
+    </div>
+  </div>
+  <div class="no-data">
+    <div class="section-header">
+      <span class="section-header">NO DATA CHANNELS</span>
+    </div>
+    <div class="section-body">
+      <div *ngFor="let channel of defaultFullChannelsList; let idx = index; let odd = odd" [class.odd]="odd" class="section-row">
+        <input type="checkbox" (name)="channel.channel_name" class=""
+               id="nodata_channel_{{channel.channel_name}}" (change)="addNoDataChannel($event, idx, channel)" [checked]="false">
+        <label for="nodata_channel_{{channel.channel_name}}">{{channel.proper_name}}</label>
+      </div>
+    </div>
+  </div>
+
+</div>

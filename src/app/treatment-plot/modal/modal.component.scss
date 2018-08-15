@@ -1,0 +1,50 @@
+:host {
+  /*.modal-header {
+    padding: .5rem;
+    background-color: #f0f3f5;
+    h4 span:hover {
+      color: #2196f3;
+    }
+    button {
+      margin: 0;
+      padding: 0;
+      width: 32px;
+      span {
+        line-height: 31px;
+      }
+    }
+  }
+  .modal-body {
+    .row:first-child {
+      margin-bottom: 1rem;
+    }
+    input:not([type="checkbox"]) {
+      width: 100%;
+    }
+    label {
+      justify-content: left;
+    }
+  }
+  .modal-footer {
+    padding: .5rem;
+    border-top: 1px solid #c2cfd6;
+    .d-flex {
+      width: 100%;
+    }
+    .justify-content-end > button:first-child {
+      margin-right: .5rem;
+    }
+  }*/
+  ::ng-deep mat-dialog-content {
+    overflow: visible!important;
+  }
+}
+
+.ui-colorpicker-preview {
+   width: 100px!important;
+   height: 1em!important;
+ }
+.ui-colorpicker-preview .ui-inputtext .ui-state-default .ui-corner-all .ng-tns-c24-0 .ng-star-inserted {
+  width: 100px!important;
+  height: 1em!important;
+}

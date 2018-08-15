@@ -1,0 +1,29 @@
+@import '../../../styles.scss';
+
+:host {
+  .menu-container {
+    height: 100%;
+  }
+  button {
+    text-align: left;
+    color: #afbdd1;
+    height: 2.5rem;
+    padding-left: 4px;
+    ::ng-deep mat-icon {
+      color: #64718a;
+      border-radius: 50%;
+      width: 34px;
+      height: 34px;
+      line-height: 34px;
+      text-align: center;
+    }
+    &.active {
+      background: $background-dark-dark;
+      color: #fff;
+      ::ng-deep mat-icon {
+        background: $links-text;
+        color: #ececec !important;
+      }
+    }
+  }
+}
