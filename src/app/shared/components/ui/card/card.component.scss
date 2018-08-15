@@ -1,0 +1,63 @@
+@import '../../../../../scss/ipso/mixins';
+@import '../../../../../scss/ipso-variables';
+@import '../../../../../scss/flexbox';
+
+:host {
+  height: 100%;
+  .card {
+    background-color: #F8F8F8;
+    border: none;
+    border-radius: 0;
+    box-shadow: 1px 1px 5px 0 rgba(37, 45, 71, 0.25);
+    height: 100%;
+    position: relative;
+
+    @include flexbox;
+    @include flex-direction(column);
+
+    .card-header {
+      background-color: transparent;
+      border-bottom: 1px solid #F8F8F8;
+      @include flexbox;
+      @include justify-content(space-between);
+      @include align-items(center);
+      padding: 0.5rem 0.8rem;
+
+      .expand-collapse-card {
+        cursor: pointer;
+      }
+    }
+
+    > .card-body {
+      border: 0 !important;
+      @include flex(1);
+      @include flexbox;
+      @include flex-direction(column);
+      @include justify-content(center);
+      padding: 0.5rem 0.8rem;
+    }
+
+    .card-footer {
+      padding: 0.5rem 0.8rem;
+      background-color: transparent;
+      border-top: 1px solid #F8F8F8;
+      &:empty {
+        display: none;
+      }
+    }
+
+    &.fullwidth {
+      z-index: 99999999;
+      width: calc(100% - 96px);
+      height: 88%;
+      position: fixed;
+      top: 105px;
+      left: 81px;
+      -webkit-transition: width 0.5s, height 0.5s;
+      transition: width 0.5s, height 0.5s;
+    }
+
+  }
+}
+
+

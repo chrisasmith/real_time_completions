@@ -1,0 +1,30 @@
+<!--<button *ngIf="!expanded && !open" class="open-navbar"
+   (click)="openNavbarRight($event)" id="btn-navbar-right-toggle" type="button" [placement]="'left'" [matTooltip]="tooltipText">
+  <span *ngIf="invalidStageDetails" class="icon fa fa-exclamation-triangle warning-icon"></span>
+  <span class="icon fa" [ngClass]="open ? closedIcon : openIcon"></span>
+</button>-->
+
+<aside class="navbar-wrap">
+  <div class="navbar-header">
+    <h4>Treatment Plot Settings</h4>
+    <!--<div>
+      <app-anchor-icon *ngIf="!expanded && showToolbar"
+                        [attrId]="'btn-navbar-right-pin'"
+                        (click)="pinNavbar()"
+                        [icon]="!pin ? 'mdi mdi-pin' : 'mdi-pin-off'">
+      </app-anchor-icon>
+
+      <app-anchor-icon *ngIf="!expanded" [attrId]="'btn-navbar-expand'"
+                        (click)="openNavbarRight($event)"
+                        [icon]="'mdi mdi-close'">
+      </app-anchor-icon>
+    </div>-->
+    <button mat-icon-button (click)="openNavbarRight($event)">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div class="navbar-content">
+    <ng-content></ng-content>
+  </div>
+
+</aside>

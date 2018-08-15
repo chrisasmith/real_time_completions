@@ -1,0 +1,83 @@
+
+
+* {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+.scroller-wrapper {
+  margin: auto;
+  position: relative;
+  max-width: 90vw;
+  /* padding: 0rem 1.56rem 1rem 1.56rem;*/
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.scroll-container {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+
+.scroll-container-contents {
+  width: auto;
+  display: flex;
+}
+
+.scroll-content-no-transition {
+  -webkit-transition: none;
+  transition: none;
+}
+
+.center-content {
+  justify-content: center;
+}
+
+
+.advancer {
+  /* Reset the button */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  padding: 0;
+  border: 0;
+  /* Now style it as needed */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  /* Set the buttons invisible by default */
+  opacity: 0;
+  -webkit-transition: opacity .3s;
+  transition: opacity .3s;
+}
+.advancer:focus {
+  outline: 0;
+}
+.advancer:hover {
+  cursor: pointer;
+}
+
+.advancer_Left {
+  left: 0;
+}
+[data-overflowing="both"] ~ .advancer_Left, [data-overflowing="left"] ~ .advancer_Left {
+  opacity: 1;
+}
+
+.advancer_Right {
+  right: 0;
+}
+[data-overflowing="both"] ~ .advancer_Right, [data-overflowing="right"] ~ .advancer_Right {
+  opacity: 1;
+}
+
+.advancer_Icon {
+  width: 20px;
+  height: 44px;
+  fill: #bbb;
+}
+
+

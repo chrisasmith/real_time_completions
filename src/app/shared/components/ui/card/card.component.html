@@ -1,0 +1,15 @@
+<div class="card mb-2" [style.min-height]="cardHeight">
+
+  <div class="card-header" *ngIf="showHeader" [ngClass]="{'flex': flexHeader, 'inline-block': !flexHeader}" [ngStyle]="{'background-color': headerBgColor, 'color': '#fff'}">
+    <ng-content select="[cardHeader]"></ng-content>
+  </div>
+
+  <div class="card-body d-flex justify-content-{{justifyContent}}">
+    <ng-content></ng-content>
+  </div>
+
+  <div class="card-footer" *ngIf="showFooter">
+    <ng-content select="[cardFooter]"></ng-content>
+  </div>
+
+</div>

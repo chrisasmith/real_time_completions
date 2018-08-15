@@ -1,0 +1,16 @@
+<div id="save-modal" fxFlex fxLayout="column">
+  <div fxFlex="5" fxLayoutAlign="space-between">
+    <h4 mat-dialog-title>{{data.titleMsg}}</h4>
+    <button mat-icon-button [mat-dialog-close]="false"
+            matTooltip="Close" matTooltipPosition="left"><i class="material-icons">close</i></button>
+  </div>
+
+  <mat-dialog-content fxFlex="80">
+    <ng-container *ngComponentOutlet="data.component"></ng-container>
+  </mat-dialog-content>
+
+  <mat-dialog-actions fxFlex fxLayout="row" fxLayoutAlign="end end" fxLayoutGap="12px">
+    <button mat-raised-button [mat-dialog-close]="false">Cancel</button>
+    <!--<button mat-raised-button color="primary" [mat-dialog-close]="true">Save</button>-->
+  </mat-dialog-actions>
+</div>

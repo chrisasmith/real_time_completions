@@ -1,0 +1,22 @@
+@import '../../../../../scss/flexbox';
+
+:host {
+  @include inline-flex;
+  .anchor {
+    background-color: lighten(black, 80%);
+    border-radius: 50%;
+    @include flexbox;
+    @include align-items(center);
+    @include justify-content(center);
+    height: 2.0625rem;
+    margin-left: 0.4rem;
+    width: 2.0625rem;
+  }
+
+  .anchor-icon {
+    font-size: 1.2rem;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}

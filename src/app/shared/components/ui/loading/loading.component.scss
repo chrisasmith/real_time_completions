@@ -1,0 +1,60 @@
+.derrick {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
+  background: #0054a0;
+  opacity: .7;
+  border-radius: 100%;
+  border: 1px solid #fff;
+}
+
+.rtc-text {
+  color: white;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  top: 11px;
+  font-size: 19px;
+}
+
+svg {
+  position: absolute;
+  top: 34px;
+  .wifi-bar {
+    fill: #fff;
+  }
+  .base {
+    fill: #fff;
+  }
+  .first-bar { animation: first-bar-anim 2s infinite; }
+  .second-bar { animation: second-bar-anim 2s infinite; }
+  .third-bar { animation: third-bar-anim 2s infinite; }
+}
+
+
+@keyframes first-bar-anim {
+  0%   { opacity: 0; }
+  25%  { opacity: 1; }
+  75%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes second-bar-anim {
+  0%   { opacity: 0; }
+  25%  { opacity: 0; }
+  50%  { opacity: 1; }
+  75%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes third-bar-anim {
+  0%   { opacity: 0; }
+  50%  { opacity: 0; }
+  75%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+

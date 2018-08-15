@@ -1,0 +1,15 @@
+<div class="anadarko-card">
+  <div class="card-header" title="cardState?.channel?.name">
+    {{title}}
+  </div>
+  <div [class.pad-top]="!showUnits" class="card-body">
+    <span class="data-value">
+      <ng-content></ng-content>
+    </span>
+    <footer *ngIf="showUnits" class="card-ftr row">
+      <div class="col-md-12">
+        {{units}}
+      </div>
+    </footer>
+  </div>
+</div>
