@@ -1,0 +1,9 @@
+{
+  "environment": "DEV",
+  "services": {
+    "AUTH": "http://authservicedev.anadarko.com/services/auth",
+    "CONFIG": "http://servicesdev.anadarko.com/services/config",
+    "USER": "http://servicesdev.anadarko.com/services/user",
+    "AVATAR": "http://servicesdev.anadarko.com/services/directory"
+  }
+}
